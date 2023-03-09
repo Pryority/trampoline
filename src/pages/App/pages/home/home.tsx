@@ -23,7 +23,7 @@ const Home = () => {
       <Header />
       <Card sx={{ ml: 4, mr: 4, mt: 2, mb: 2 }}>
         <CardContent>
-          {activeAccount && <AccountInfo address={activeAccount}></AccountInfo>}
+          {activeAccount && <AccountInfo address={activeAccount} showOptions={false}></AccountInfo>}
           <Box
             component="div"
             display="flex"
