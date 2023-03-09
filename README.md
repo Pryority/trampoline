@@ -1,4 +1,4 @@
-# Trampoline Example
+# Trampoline
 
 <!-- markdownlint-disable MD033 -->
 <p align="center">
