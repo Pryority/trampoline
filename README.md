@@ -1,12 +1,15 @@
 # Trampoline Example
 
-<img src="src/assets/img/icon-128.png" width="64"/>
+<!-- markdownlint-disable MD033 -->
+<p align="center">
+  <img src="src/assets/img/icon-128.png" width="64" alt=""/>
+</p>
 
 Trampoline is a chrome extension boilerplate code to showcase your own Smart Contract Wallets with React 18 and Webpack 5 support.
 
 ## Installation and Running
 
-### Steps:
+### Steps
 
 1. Verify that your [Node.js](https://nodejs.org/) version is >= **18.12.0**.
 2. Clone this repository.
@@ -44,13 +47,13 @@ Trampoline is a chrome extension boilerplate code to showcase your own Smart Con
 
 ### How to deploy EntryPoint Locally
 
-1. Clone the repo https://github.com/eth-infinitism/account-abstraction
+1. Clone the repo <https://github.com/eth-infinitism/account-abstraction>
 2. Run `yarn install` to install the dependencies.
 3. Deploy EntryPoint with `DEBUG=true MNEMONIC_FILE=<path-to-mnemonic-file> yarn deploy --network dev`
 
 ### How to run bundler Locally
 
-1. Clone the repo https://github.com/eth-infinitism/bundler
+1. Clone the repo <https://github.com/eth-infinitism/bundler>
 2. Run `yarn install` to install the dependencies.
 3. Run `yarn preprocess` to compile all the local dependencies.
 4. Edit `bundler.config.json` at `packages/bundler/localconfig`:
@@ -77,10 +80,10 @@ There are two subfolders in `src/pages/Account`:
 
 ### account-api folder
 
-This folder is used to define the `AccountAPI` of your specific account implementation. Every implementation must implement `AccountApiType`.
+This folder is used to define the `AccountAPI` of your specific account implementation. Every implementation must implement `ApiType`.
 
 ```typescript
-export abstract class AccountApiType extends BaseAccountAPI {
+export abstract class ApiType extends BaseAPI {
   abstract serialize: () => Promise<object>;
 
   /** sign a message for the user */
@@ -95,7 +98,7 @@ export abstract class AccountApiType extends BaseAccountAPI {
   ): Promise<string>;
 }
 
-export declare abstract class BaseAccountAPI {
+export declare abstract class BaseAPI {
   /**
    * return the value to put into the "initCode" field, if the contract is not yet deployed.
    * this value holds the "factory" address, followed by this account's information
@@ -147,13 +150,13 @@ Once the component has collected enough information from the user, it should pas
 The signature of the `account-api` is as follows, which shows how the `context` will be passed:
 
 ```typescript
-export interface AccountApiParamsType extends BaseApiParams {
+export interface ApiParamsType extends BaseApiParams {
   context?: any;
 }
 
 export type AccountImplementationType = new (
-  params: AccountApiParamsType
-) => AccountApiType;
+  params: ApiParamsType
+) => ApiType;
 ```
 
 The `sign-message` folder defines the component that will be displayed to the user whenever the dapp requests the user to sign any message, i.e. dapp calls `personal_sign` RPC method. You can display custom information or collect user inputs if needed.
