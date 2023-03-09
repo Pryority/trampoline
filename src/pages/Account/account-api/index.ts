@@ -1,3 +1,3 @@
-import AccountApi from './account-api';
+import tAPI from './account-api';
 
-export default AccountApi;
+export default tAPI;

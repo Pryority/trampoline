@@ -5,7 +5,7 @@ import { ServiceLifecycleEvents } from './types';
 import * as encryptor from '@metamask/browser-passworder';
 import { Provider } from '@ethersproject/providers';
 import { BigNumber, ethers } from 'ethers';
-import { AccountApiType } from '../../Account/account-api/types';
+import { ApiType } from '../../Account/account-api/types';
 import {
   AccountImplementations,
   ActiveAccountImplementation,
@@ -38,7 +38,7 @@ export type KeyringServiceCreateProps = {
 
 export default class KeyringService extends BaseService<Events> {
   keyrings: {
-    [address: string]: AccountApiType;
+    [address: string]: ApiType;
   };
   vault?: string;
   password?: string;
@@ -72,7 +72,7 @@ export default class KeyringService extends BaseService<Events> {
     password?: string,
     encryptionKey?: string,
     encryptionSalt?: string
-  ): Promise<{ [address: string]: AccountApiType }> {
+  ): Promise<{ [address: string]: ApiType }> {
     if (!this.vault) throw new Error('No vault to restore');
 
     let vault: any;
@@ -112,7 +112,7 @@ export default class KeyringService extends BaseService<Events> {
    */
   _restoreKeyring = async (
     serialized: KeyringSerialisedState
-  ): Promise<AccountApiType | undefined> => {
+  ): Promise<ApiType | undefined> => {
     const { address, type, data } = serialized;
 
     const keyring = await this._newKeyring(address, type, data);
@@ -135,7 +135,7 @@ export default class KeyringService extends BaseService<Events> {
     address: string,
     type: string,
     data: any
-  ): Promise<AccountApiType> {
+  ): Promise<ApiType> {
     const account = new AccountImplementations[type]({
       provider: this.provider,
       entryPointAddress: this.entryPointAddress,
