@@ -4,7 +4,7 @@ Trampoline is a chrome extension boilerplate code to showcase your own Smart Con
 
 <!-- markdownlint-disable MD033 -->
 <p align="center">
-  <img src="src/assets/img/undeployed-wallet.png" width="64" alt=""/>
+  <img src="src/assets/img/undeployed-wallet.png" alt=""/>
 </p>
 
 ## Installation and Running
