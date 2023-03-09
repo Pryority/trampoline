@@ -1,11 +1,11 @@
 # Trampoline
 
+Trampoline is a chrome extension boilerplate code to showcase your own Smart Contract Wallets with React 18 and Webpack 5 support.
+
 <!-- markdownlint-disable MD033 -->
 <p align="center">
-  <img src="src/assets/img/icon-128.png" width="64" alt=""/>
+  <img src="src/assets/img/undeployed-wallet.png" width="64" alt=""/>
 </p>
-
-Trampoline is a chrome extension boilerplate code to showcase your own Smart Contract Wallets with React 18 and Webpack 5 support.
 
 ## Installation and Running
 
@@ -23,6 +23,11 @@ Trampoline is a chrome extension boilerplate code to showcase your own Smart Con
    3. Click on `Load unpacked extension`
    4. Select the `build` folder.
 8. Happy hacking.
+
+<!-- markdownlint-disable MD033 -->
+<p align="center">
+  <img src="src/assets/img/icon-128.png" width="64" alt=""/>
+</p>
 
 ### Custom Network
 
@@ -154,9 +159,7 @@ export interface ApiParamsType extends BaseApiParams {
   context?: any;
 }
 
-export type AccountImplementationType = new (
-  params: ApiParamsType
-) => ApiType;
+export type AccountImplementationType = new (params: ApiParamsType) => ApiType;
 ```
 
 The `sign-message` folder defines the component that will be displayed to the user whenever the dapp requests the user to sign any message, i.e. dapp calls `personal_sign` RPC method. You can display custom information or collect user inputs if needed.
